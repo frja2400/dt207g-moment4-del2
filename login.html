@@ -15,23 +15,26 @@
         <nav>
             <ul>
                 <li><a href="index.html">Startsida</a></li>
-                <li><a href="login.html">Logga in</a></li>
+                <li><a href="login.html" class="active">Logga in</a></li>
                 <li><a href="admin.html">Admin</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Logga in:</h2>
+        <h2>Logga in</h2>
         <form id="loginForm" novalidate>
             <label for="username">Användarnamn:</label><br>
             <input type="text" id="username" required><br>
             <label for="password">Lösenord:</label><br>
             <input type="password" id="password" required><br>
-            <button type="submit">LOGGA IN</button>
+            <div class="btnContainer"><button type="submit">LOGGA IN</button></div>
+            <p>Har du inget konto? <a href="register.html">Registrera dig här</a></p>
         </form>
 
-        <p>Har du inget konto? <a href="register.html">Registrera dig här</a></p>
     </main>
+    <footer>
+        <p>Frida Jansson</p>
+    </footer>
     <script type="module" src="/src/main.js"></script>
 </body>
 
