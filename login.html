@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moment 4 - DT207G</title>
+</head>
+
+<body>
+    <header>
+        <h1>Moment 4 - DT207G</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startsida</a></li>
+                <li><a href="login.html">Logga in</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Logga in:</h2>
+        <form id="loginForm" novalidate>
+            <label for="username">Användarnamn:</label><br>
+            <input type="text" id="username" required><br>
+            <label for="password">Lösenord:</label><br>
+            <input type="password" id="password" required><br>
+            <button type="submit">LOGGA IN</button>
+        </form>
+
+        <p>Har du inget konto? <a href="register.html">Registrera dig här</a></p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
