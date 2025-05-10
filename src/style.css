@@ -6,7 +6,11 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    margin: 0 auto;
+    margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 main {
@@ -89,7 +93,7 @@ footer {
 }
 
 form {
-    padding: 30px;
+    padding: 5px 20px 5px 20px;
     border-radius: 5px;
     width: 100%;
     max-width: 400px;
@@ -103,7 +107,6 @@ form {
     margin-top: 10px;
     border: 2px solid lightgrey;
     border-radius: 5px;
-    width: 400px;
     width: 100%;
 }
 
@@ -111,13 +114,13 @@ form {
     margin-top: 10px;
     border: 2px solid lightgrey;
     border-radius: 5px;
-    width: 400px;
     width: 100%;
 }
 
 small {
     display: inline-block;
     padding-bottom: 20px;
+    padding-top: 5px;
 }
 
 button {
@@ -138,6 +141,59 @@ p.users {
     text-align: center;
 }
 
+@media screen and (max-width : 850px) {
+    header {
+        width: 100%;
+        border-radius: 0;
+        border: none;
+    }
 
+    .introText {
+        width: 95%;
+    }
 
+    footer {
+        width: 85%;
+    }
+}
 
+@media screen and (max-width : 630px) {
+    header {
+        background: transparent;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    h1 {
+        background-color: #535bf8;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-bottom: 5px;
+        border-bottom: 2px solid #2b2e63;
+        margin-top: 0;
+    }
+
+    nav li {
+        width: 95%;
+        margin: 5px;
+        background-color: #535bf8;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px 0;
+        border: 2px solid #2b2e63;
+    }
+
+    form {
+        max-width: none;
+    }
+
+    main {
+        max-width: none;
+    }
+
+}
