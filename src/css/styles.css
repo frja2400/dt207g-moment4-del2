@@ -152,6 +152,22 @@ button {
     margin: 0;
 }
 
+#userList li {
+    padding-bottom: 7px;
+}
+
+.error {
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.success {
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+
 @media screen and (max-width : 850px) {
     header {
         width: 100%;

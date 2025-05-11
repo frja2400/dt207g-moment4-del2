@@ -18,6 +18,10 @@ function init() {
     if (loginForm) {
         loginForm.addEventListener("submit", loginUser);
     }
+
+    if (registerForm) {
+        registerForm.addEventListener("submit", registerUser);
+    }
 }
 
 //Funktion som genererar meny beroende på om du är inloggad eller inte
@@ -152,6 +156,70 @@ async function loginUser(e) {
         displayError("Fel vid inloggning, vänligen försök igen senare.", loginMessageDiv);
     }
 }
+
+
+async function registerUser(e) {
+    e.preventDefault();
+
+    let usernameInput = document.getElementById("username").value;
+    let passwordInput = document.getElementById("password").value;
+    const registerMessageDiv = document.getElementById("registerMessage");
+
+    registerMessageDiv.innerHTML = "";
+
+    //Samla felmeddelanden i en array
+    const errors = [];
+
+    //Validering för inmatning
+    if (!usernameInput.trim()) {
+        errors.push("Du måste fylla i ett användarnamn");
+    } else if (usernameInput.trim().length < 5) {
+        errors.push("Användarnamn måste vara minst 5 tecken.");
+    }
+
+    if (!passwordInput) {
+        errors.push("Du måste fylla i ett lösenord.");
+    } else if (passwordInput.length < 7) {
+        errors.push("Lösenord måste vara minst 7 tecken.");
+    }
+
+    //Om det finns valideringfel, visa dessa och avsluta inloggningen
+    if (errors.length > 0) {
+        errors.forEach(error => {
+            displayError(error, registerMessageDiv);
+        });
+        return;
+    }
+
+    //Om validering är godkänd, fortsätt med inloggning.
+    let user = {
+        username: usernameInput,
+        password: passwordInput
+    }
+
+    try {
+        const response = await fetch("https://dt207g-moment4-del1.onrender.com/api/register", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            registerMessageDiv.innerHTML = "<p class='success'>Användare registrerad! <a href='login.html'>Logga in här</a></p>";
+        } else {
+            //Om något går fel med registrering, visa ett generellt felmeddelande
+            displayError("Det gick inte att registrera användarkontot.", registerMessageDiv);
+        }
+    } catch (error) {
+        console.log("Fel vid registrering", error);
+        displayError("Fel vid registrering, vänligen försök igen senare.", registerMessageDiv);
+    }
+}
+
 
 //Funktion för att visa felmeddelande (parametrar meddelanden och elementet)
 function displayError(error, container) {
